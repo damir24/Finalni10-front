@@ -13,7 +13,7 @@ import Categories from "../Categories.js";
 import Login from "../Login.js";
 import Register from "../Register.js";
 
-export default function C_navbar() {
+export default function Navigation() {
     return (
         <Router>
             <nav className="w3-bar w3-blue">

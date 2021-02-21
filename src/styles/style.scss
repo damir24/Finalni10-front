@@ -1,0 +1,17 @@
+nav {
+    display: flex;
+    align-items: center;
+    a {
+        margin-left: 5vw;
+    }
+    div {
+        display: flex;
+        flex-direction: row;
+        a{
+            margin-left: 2vw;
+        }
+    }
+}
+a{
+    text-decoration: none;
+}

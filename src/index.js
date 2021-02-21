@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Navigation from "./components/navigation.js";
 
-class Home extends React.Component {
-    render() {
-        return (
-            <Navigation />
-        )
-    }
-}
-
-ReactDOM.render(<Home />, document.getElementById('root'));
+ReactDOM.render(
+    <React.StrictMode>
+        <Navigation />
+    </React.StrictMode>,
+    document.getElementById('root')
+);
