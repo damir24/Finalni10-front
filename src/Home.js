@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import Images from "./components/image_carousel.js";
 
 class Home extends Component {
     render() {
-        return <h1>Home</h1>
+        return (
+            <Images />
+        )
     }
 }
 
