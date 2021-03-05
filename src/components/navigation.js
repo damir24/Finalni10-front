@@ -5,7 +5,6 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import "../styles/w3.css";
 import "../styles/style.css";
 import Home from "../Home.js";
 import About from "../About.js";
@@ -16,14 +15,12 @@ import Register from "../Register.js";
 export default function Navigation() {
     return (
         <Router>
-            <nav className="w3-bar w3-blue">
-                <Link to="/" className="w3-bar-item w3-button">Početna Strana</Link>
-                <Link to="/about" className="w3-bar-item w3-button">O nama</Link>
-                <Link to="/categories" className="w3-bar-item w3-button">Kategorije</Link>
-                <div>
-                    <Link to="/login" className="w3-button">Uloguj se</Link>
-                    <Link to="register" className="w3-button">Registruj se</Link>
-                </div>
+            <nav className="container row">
+                <Link to="/" className="col-sm">Početna Strana</Link>
+                <Link to="/about" className="col-sm">O nama</Link>
+                <Link to="/categories" className="col-sm">Kategorije</Link>
+                <Link to="/login" className="col-sm">Uloguj se</Link>
+                <Link to="register" className="col-sm">Registruj se</Link>
             </nav>
 
             {/* A <Switch> looks through its children <Route>s and

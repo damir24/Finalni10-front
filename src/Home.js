@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
-import Images from "./components/image_carousel.js";
+import ImageCarousel from './components/image_carousel.js';
+import PopularItems from "./components/popularItems.js";
 
 class Home extends Component {
     render() {
         return (
-            <Images />
+            <div className="container">
+                <ImageCarousel />
+                <PopularItems />
+                <footer>
+                    <h3 className="container">Some text!</h3>
+                    <p>some long text some long text some long text ...</p>
+                </footer>
+            </div>
         )
     }
 }
