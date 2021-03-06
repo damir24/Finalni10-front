@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import axios from 'axios';
+import { Redirect } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -47,7 +49,32 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUp() {
+    const { authTokens, setTokens } = useContext(AuthContext);
+    const [formFields, setFormFields] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
   const classes = useStyles();
+
+  const handleChange = (event) => {
+    setFormFields({ ...formFields, [event.target.name]: event.target.value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formFields);
+    axios
+      .post("http://localhost:1337/auth/local", formFields)
+      .then((result) => {
+        let { jwt } = result.data;
+        console.log(jwt);
+        setTokens(jwt);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -69,6 +96,7 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="firstName"
+                value={formFields.firstName}
                 label="First Name"
                 autoFocus
               />
@@ -79,6 +107,7 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="lastName"
+                value={formFields.lastName}
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
@@ -104,6 +133,7 @@ export default function SignUp() {
                 label="Password"
                 type="password"
                 id="password"
+                value={formFields.password}
                 autoComplete="current-password"
               />
             </Grid>
